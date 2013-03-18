@@ -169,8 +169,8 @@ module Liquid
         return input.to_s
       end
 
-      if ((input.is_a?(String) && !/^\d+$/.match(input.to_s).nil?) || input.is_a?(Integer)) && input.to_i > 0
-        input = Time.at(input.to_i)
+      if (num = input.to_i) > 0
+        input = Time.at(num)
       end
 
       date = input.is_a?(String) ? Time.parse(input) : input
